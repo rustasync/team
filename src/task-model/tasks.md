@@ -10,21 +10,23 @@ Rust provides asynchrony through *tasks*, which are:
 
 **The key idea is that, any time a task would [block](task-model/intro.html)
 waiting for some external event to occur, it instead returns control to the
-thread that was executing it.** This is easiest to see by looking at some of the
-types and traits involved; they're all defined in the `futures` crate, within
-the `task` module.
+thread that was executing it.**
 
-First, `Task` is defined as a *trait* that encompasses some ongoing work. You
-can ask the task to continue trying to do its work by invoking `tick`:
+To see how these ideas work, over the course of this chapter we will build a
+*toy* version of the task and executor system from the `futures` crate. At the
+end of the chapter, we'll then connect these toy versions to the more
+sophisticated abstractions in the actual crate.
+
+We'll start by defining a simple task trait. Here, a task encompasses some
+(possibly ongoing) work; you can ask the task to try to complete its work by
+invoking `complete`:
 
 ```rust
 /// An independent, non-blocking computation
-trait Task {
-    /// The type of data the task produces when complete.
-    type Output;
-
-    /// Start *or* continue execution of the task.
-    fn tick(&mut self, wake: &WakeHandle) -> Async<Self::Output>;
+trait ToyTask {
+    /// Attempt to finish executing the task, returning `Async::WillWake`
+    /// if the task needs to wait for an event before it can complete.
+    fn complete(&mut self, wake: &WakeHandle) -> Async<()>;
 }
 ```
 
@@ -44,11 +46,11 @@ enum Async<T> {
 ```
 
 The fact that the task *returns* instead of blocking is what gives the
-underlying thread an opportunity to go do other useful work (like calling `tick`
-on a different task). But how will we know when to try the original task's
-`tick` method again?
+underlying thread an opportunity to go do other useful work (like calling `complete`
+on a *different* task). But how will we know when to try the original task's
+`complete` method again?
 
-If you look back at the `tick` method, you may notice that there's an argument,
+If you look back at the `complete` method, you may notice that there's an argument,
 `wake`, that we glossed over. This argument is a trait object for the `Wake`
 trait:
 
@@ -57,9 +59,7 @@ trait Wake: Send + Sync + 'static {
     fn wake(&self);
 }
 
-// Essentially an `Arc<Wake>`
-struct WakeHandle { .. }
-impl<T: Wake> From<Arc<T>> for WakeHandle { .. }
+type WakeHandle = Arc<Wake>;
 ```
 
 So, **whenever you ask a task to execute, you also give it a handle for waking

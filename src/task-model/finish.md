@@ -37,9 +37,7 @@ forever, continuously printing a message after each `period` has elapsed:
 
 ```rust
 impl Task for Periodic {
-    type Output = ();
-
-    fn tick(&mut self, wake: Arc<Wake>) -> Async<()> {
+    fn complete(&mut self, wake: &WakeHandle) -> Async<()> {
         // are we ready to ding yet?
         let now = Instant::now();
         if now >= self.next {
@@ -58,8 +56,8 @@ And now, we hook it all together:
 
 ```rust,no_run
 fn main() {
-    let timer = Timer::new();
-    let exec = exec::SingleThreadExec::new();
+    let timer = ToyTimer::new();
+    let exec = ToyExec::new();
 
     for i in 1..10 {
         exec.spawn(Periodic::new(i, Duration::from_millis(i * 500), timer.clone()));

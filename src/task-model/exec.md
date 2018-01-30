@@ -9,8 +9,6 @@ use std::mem;
 use std::collections::{HashMap, HashSet};
 use std::sync::{Arc, Mutex, MutexGuard};
 use std::thread::{self, Thread};
-
-use futures::task::{Task, Wake, Async};
 ```
 
 First up, we'll define a structure that holds the executor's state. The executor
@@ -41,7 +39,7 @@ locally):
 
 ```rust
 #[derive(Clone)]
-pub struct SingleThreadExec {
+pub struct ToyExec {
     state: Arc<Mutex<ExecState>>,
 }
 ```
@@ -51,11 +49,11 @@ up an actual task, together with a `WakeHandle` for waking it back up:
 
 ```rust
 struct TaskEntry {
-    task: Box<Task<Output = ()> + Send>,
+    task: Box<ToyTask + Send>,
     wake: Arc<WakeHandle>,
 }
 
-struct WakeHandle {
+struct ToyWake {
     // A link back to the executor that owns the task we want to wake up.
     exec: SingleThreadExec,
 
@@ -67,9 +65,9 @@ struct WakeHandle {
 Finally, we have a bit of boilerplate for creating and working with the executor:
 
 ```rust
-impl SingleThreadExec {
+impl ToyExec {
     pub fn new() -> Self {
-        SingleThreadExec {
+        ToyExec {
             state: Arc::new(Mutex::new(ExecState {
                 next_id: 0,
                 tasks: HashMap::new(),
@@ -92,19 +90,19 @@ for simplicity never exits; it just continually runs all spawned tasks to
 completion:
 
 ```rust
-impl SingleThreadExec {
+impl ToyExec {
     pub fn run(&self) {
         loop {
             // each time around, we grab the *entire* set of ready-to-run task IDs:
             let mut ready = mem::replace(&mut self.state_mut().ready, HashSet::new());
 
-            // now `tick` each ready task:
+            // now try to `complete` each ready task:
             for id in ready.drain() {
                 // note that we take *full ownership* of the task; if it completes,
                 // it will be dropped.
                 let entry = self.state_mut().tasks.remove(&id);
                 if let Some(mut entry) = entry {
-                    if let Async::WillWake = entry.task.tick(entry.wake.clone()) {
+                    if let Async::WillWake = entry.task.complete(entry.wake.clone()) {
                         // the task hasn't completed, so put it back in the table.
                         self.state_mut().tasks.insert(id, entry);
                     }
@@ -144,7 +142,7 @@ impl ExecState {
     }
 }
 
-impl Wake for WakeHandle {
+impl Wake for ToyWake {
     fn wake(&self) {
         self.exec.state_mut().wake_task(self.id);
     }
@@ -155,20 +153,20 @@ The remaining pieces are then straightforward. The `spawn` method is
 responsible for packaging up a task into a `TaskEntry` and installing it:
 
 ```rust
-impl SingleThreadExec {
+impl ToyExec {
     pub fn spawn<T>(&self, task: T)
-        where T: Task<Output = ()> + Send + 'static
+        where T: Task + Send + 'static
     {
         let mut state = self.state_mut();
 
         let id = state.next_id;
         state.next_id += 1;
 
-        let wake = WakeHandle { id, exec: self.clone() };
+        let wake = ToyWake { id, exec: self.clone() };
         let entry = TaskEntry { wake: Arc::new(wake), task: Box::new(task) };
         state.tasks.insert(id, entry);
 
-        // A newly-added task is considered immediately ready to `tick`
+        // A newly-added task is considered immediately ready to run
         state.wake_task(id);
     }
 }
@@ -179,7 +177,7 @@ up have been dropped, and it's not ready to run. In this case, we want to drop
 the task itself, since it is essentially unreachable:
 
 ```rust
-impl Drop for WakeHandle {
+impl Drop for ToyWake {
     fn drop(&mut self) {
         let mut state = self.exec.state_mut();
         if !state.ready.contains(&self.id) {

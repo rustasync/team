@@ -16,7 +16,7 @@ use std::time::{Duration, Instant};
 
 /// A handle to a timer, used for registering wakeups
 #[derive(Clone)]
-struct Timer {
+struct ToyTimer {
     tx: mpsc::Sender<Registration>,
 }
 
@@ -32,12 +32,12 @@ struct Worker {
     active: BTreeMap<Instant, Arc<Wake>>
 }
 
-impl Timer {
-    fn new() -> Timer {
+impl ToyTimer {
+    fn new() -> ToyTimer {
         let (tx, rx) = mpsc::channel();
         let worker = Worker { rx, active: BTreeMap::new() };
         thread::spawn(|| worker.work());
-        Timer { tx }
+        ToyTimer { tx }
     }
 
     // Register a new wakeup with this timer
