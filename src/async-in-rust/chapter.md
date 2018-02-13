@@ -36,7 +36,7 @@ application would be better served by using the simpler synchronous model.
 
 ## Where async Rust is today, and where it's headed
 
-**Rust has a stable foundation for async programming** with the [`futures`] and
+**Rust has a strong foundation for async programming** with the [`futures`] and
 [`tokio`] crates, which cover the core abstractions for async, and primitives
 for async I/O, respectively. On top of these crates there's an ecosystem for
 interacting with various protocols and services, including HTTP, SSL, DNS,
