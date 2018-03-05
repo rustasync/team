@@ -18,6 +18,7 @@ task IDs for tasks that should be woken up (because an event they were waiting
 on has occurred):
 
 ```rust
+// the internal executor state
 struct ExecState {
     // The next available task ID.
     next_id: usize,
@@ -45,20 +46,12 @@ pub struct ToyExec {
 ```
 
 Now, the `tasks` field of `ExecState` provides `TaskEntry` instances, which box
-up an actual task, together with a `WakeHandle` for waking it back up:
+up an actual task, together with a `Waker` for waking it back up:
 
 ```rust
 struct TaskEntry {
     task: Box<ToyTask + Send>,
-    wake: Arc<WakeHandle>,
-}
-
-struct ToyWake {
-    // A link back to the executor that owns the task we want to wake up.
-    exec: SingleThreadExec,
-
-    // The ID for the task we want to wake up.
-    id: usize,
+    wake: Waker,
 }
 ```
 
@@ -93,31 +86,32 @@ completion:
 impl ToyExec {
     pub fn run(&self) {
         loop {
-            // each time around, we grab the *entire* set of ready-to-run task IDs:
+            // Each time around, we grab the *entire* set of ready-to-run task IDs:
             let mut ready = mem::replace(&mut self.state_mut().ready, HashSet::new());
 
-            // now try to `complete` each ready task:
+            // Now try to `complete` each initially-ready task:
             for id in ready.drain() {
-                // note that we take *full ownership* of the task; if it completes,
-                // it will be dropped.
+                // We take *full ownership* of the task; if it completes, it will
+                // be dropped.
                 let entry = self.state_mut().tasks.remove(&id);
                 if let Some(mut entry) = entry {
-                    if let Async::WillWake = entry.task.complete(entry.wake.clone()) {
-                        // the task hasn't completed, so put it back in the table.
+                    if let Async::Pending = entry.task.poll(&entry.wake) {
+                        // The task hasn't completed, so put it back in the table.
                         self.state_mut().tasks.insert(id, entry);
                     }
                 }
             }
 
-            // we'd processed all work we acquired on entry; block until more work
-            // is available
+            // We've processed all work we acquired on entry; block until more work
+            // is available. If new work became available after our `ready` snapshot,
+            // this will be a no-op.
             thread::park();
         }
     }
 }
 ```
 
-The main subtlety here is that, in each turn of the loop, we `tick` everything
+The main subtlety here is that, in each turn of the loop, we `poll` everything
 that was ready *at the beginning*, and then "park" the thread.  The
 [`park`]/[`unpark`] APIs in `std` make it very easy to handle blocking and
 waking OS threads. In this case, what we want is for the executor's underlying
@@ -142,6 +136,14 @@ impl ExecState {
     }
 }
 
+struct ToyWake {
+    // A link back to the executor that owns the task we want to wake up.
+    exec: SingleThreadExec,
+
+    // The ID for the task we want to wake up.
+    id: usize,
+}
+
 impl Wake for ToyWake {
     fn wake(&self) {
         self.exec.state_mut().wake_task(self.id);
@@ -163,29 +165,23 @@ impl ToyExec {
         state.next_id += 1;
 
         let wake = ToyWake { id, exec: self.clone() };
-        let entry = TaskEntry { wake: Arc::new(wake), task: Box::new(task) };
+        let entry = TaskEntry {
+            wake: Waker::from(Arc::new(wake)),
+            task: Box::new(task)
+        };
         state.tasks.insert(id, entry);
 
-        // A newly-added task is considered immediately ready to run
+        // A newly-added task is considered immediately ready to run,
+        // which will cause a subsequent call to `park` to immediately
+        // return.
         state.wake_task(id);
     }
 }
 ```
 
-Finally, it can happen that a task has not completed, but all handles to wake it
-up have been dropped, and it's not ready to run. In this case, we want to drop
-the task itself, since it is essentially unreachable:
+And with that, we've built a task scheduler! But before we get too excited, it's
+important to realize that as written, this implementation leaks tasks due to
+`Arc` cycles. It's a good exercise to try to observe and fix this problem.
 
-```rust
-impl Drop for ToyWake {
-    fn drop(&mut self) {
-        let mut state = self.exec.state_mut();
-        if !state.ready.contains(&self.id) {
-            state.tasks.remove(&self.id);
-        }
-    }
-}
-```
-
-And with that, we've built a task scheduler! Now let's build a source of events
-for tasks to wait on.
+Still, this was intended as a toy executor after all. Let's move on to building
+a source of events for tasks to wait on.

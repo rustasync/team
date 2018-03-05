@@ -37,7 +37,7 @@ forever, continuously printing a message after each `period` has elapsed:
 
 ```rust
 impl Task for Periodic {
-    fn complete(&mut self, wake: &WakeHandle) -> Async<()> {
+    fn poll(&mut self, wake: &Waker) -> Async<()> {
         // are we ready to ding yet?
         let now = Instant::now();
         if now >= self.next {
@@ -47,7 +47,7 @@ impl Task for Periodic {
 
         // make sure we're registered to wake up at the next expected `ding`
         self.timer.register(self.next, wake);
-        Async::WillWake
+        Async::Pending
     }
 }
 ```

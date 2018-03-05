@@ -1,9 +1,8 @@
 # Tasks
 
 The `futures` crate does not define a `Task` trait directly, but instead defines
-the more general concept of *futures*, something we'll be diving into in much
-more detail soon. For the moment, though, let's look at the core definition for future
-(ignoring its many defaulted methods):
+the more general concept of *futures*, something we'll be diving into in detail
+soon. For the moment, though, let's look at the core definition for futures:
 
 ```rust,no_run
 /// An asynchronous computation that completes with a value or an error.
@@ -11,12 +10,12 @@ trait Future {
     type Item;
     type Error;
 
-    /// Attempt to complete the future, yielding `Ok(Async::WillWake)`
+    /// Attempt to complete the future, yielding `Ok(Async::Pending)`
     /// if the future is blocked waiting for some other event to occur.
-    fn get(&mut self) -> AsyncResult<Self::Item, Self::Error>;
+    fn poll(&mut self, cx: task::Context) -> Poll<Self::Item, Self::Error>;
 }
 
-type AsyncResult<T, E> = Result<Async<T>, E>;
+type Poll<T, E> = Result<Async<T>, E>;
 ```
 
 Futures are much like tasks, except that they return a result (which allows them

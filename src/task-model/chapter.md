@@ -1,4 +1,4 @@
-# The task model
+# Tasks and executors
 
 To effectively write async code in Rust, you need to have a good grasp on its
 foundation: the task model. Fortunately, that model is made up of only a few
