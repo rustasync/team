@@ -19,11 +19,13 @@ Our *preliminary* goals are to:
 
 * Make async programming more ergonomic in Rust by improving the futures library and providing language support for async/await syntax.
 
-* Provide a shared foundation for web frameworks in Rust by providing a standard interface for middleware & encouraging frameworks to use it, as well as writing examples of that middleware.
+* Provide a shared foundation for web frameworks in Rust by standardizing on an interface for middleware (like [Tower]) & encouraging frameworks to use it, as well as writing examples of that middleware.
 
 * Provide extensive documentation about network programming in Rust.
 
 However, the WG is just getting started, and we want to hear from you about the scope you'd like to see!
+
+[Tower]: https://github.com/tower-rs/tower
 
 # Meetings
 
