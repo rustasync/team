@@ -18,7 +18,7 @@ The WG is focused on three major areas for 2018, each of which has a dedicated s
 ## Async foundations
 
 - **Leads**: @cramertj and @MajorBreakfast
-- [Vision document and roster](https://paper.dropbox.com/doc/WG-net-async-vision-roster--AJnn_C0TJ8u1h0EyJJJbZOKCAg-uSHTvaOkWXJFOF6XwyhGl)
+- [Vision document and roster](https://rust-lang-nursery.github.io/wg-net/async-foundations)
 
 Our goal is to bring async/await onto a path to stabilization and to provide documentation for asynchronous programming:
 
@@ -29,7 +29,7 @@ Our goal is to bring async/await onto a path to stabilization and to provide doc
 ## Embedded networking foundations 
 
 - **Leads**: @Nemo157 and @levex
-- [Vision document and roster](https://paper.dropbox.com/doc/WG-net-embedded-vision-roster--AJlakREi_MFKH9wFHmVmBRY3Ag-Iwpg2WWBCt8nHi7zBulV2)
+- [Vision document and roster](https://rust-lang-nursery.github.io/wg-net/embedded-foundations)
 
 Our goal is to support IoT development in Rust by:
 
@@ -39,7 +39,7 @@ Our goal is to support IoT development in Rust by:
 ## Web foundations
 
 - **Leads**: @aturon and @yoshuawuyts
-- [Vision document and roster](https://paper.dropbox.com/doc/WG-net-web-vision-roster--AJmCfOuWsT6mMbEllZDq7eblAg-Lr6S1qrTuX1J3qaGR7iwU)
+- [Vision document and roster](https://rust-lang-nursery.github.io/wg-net/web-foundations)
 
 Our goal is to improve web programming in Rust by:
 
