@@ -24,6 +24,8 @@ Our goal is to bring async/await onto a path to stabilization and to provide doc
 | Spartan-S63        | eric@dattore.me              | ELD               |
 | aknudsen           | arve.knudsen@gmail.com       | aknuds1           |
 
+[Add yourself!](https://github.com/rust-lang-nursery/wg-net/blob/gh-pages/{{ page.path }})
+
 # Futures 0.3 and async/await
 
 This section explains in further detail what is meant by the above short description for futures 0.3 and `async`/`await`.
