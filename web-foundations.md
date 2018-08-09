@@ -24,6 +24,7 @@ Our goal is to improve web programming in Rust by:
 | Spartan-S63           | ELD               | eric@dattore.me             |
 | aknudsen              | aknuds1           | arve.knudsen@gmail.com      |
 | Yarn | Yarn | yarnnd@gmail.com |
+| sgrif | sgrif | sean@seantheprogrammer.com |
 
 [Add yourself!](https://github.com/rust-lang-nursery/wg-net/blob/gh-pages/{{ page.path }})
 
