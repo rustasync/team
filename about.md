@@ -1,18 +1,26 @@
 ---
 layout: page
-title: About
+title: The Rust Network Services WG
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+This is the home page for the Rust Network Services Working Group.
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+- [Background on the 2018 working groups is here.][working-groups]
+- [Come chat with us on #wg-net!][discord]
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
+The [issue tracker] on the WG-net repo is a primary point of coordination. If you have a networking-related topic you'd like to raise, please feel free to open an issue!
 
+[working-groups]: https://internals.rust-lang.org/t/announcing-the-2018-domain-working-groups/6737
+[discord]: https://discord.gg/rust-lang
+[issue tracker]: https://github.com/rust-lang-nursery/net-wg/issues
 
-[jekyll-organization]: https://github.com/jekyll
+## Goals and structure
+
+The WG is focused on three major areas for 2018, each of which has a dedicated subgroup, pair of leaders, and Discord channel for discussion:
+
+- [Async foundations](/async-foundations)
+- [Embedded foundations](/embedded-foundations)
+- [Web foundations](/web-foundations)
+
+If you want to get involved in one or more of these efforts, hop on [Discord][discord] and say hello, or take a look at the [issue tracker].

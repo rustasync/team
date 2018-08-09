@@ -1,0 +1,53 @@
+---
+layout: default
+---
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+        {{ page.date | date: date_format }}
+      </time>
+      {%- if page.author -%}
+        •
+        <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <span class="p-author h-card" itemprop="name">{{ page.author }}</span>
+          {%- if page.author_github -%}
+            <a class="author-github" href="https://github.com/{{ page.author_github }}">
+              (@{{ page.author_github }})
+            </a>
+          {%- endif -%}
+        </span>
+      {%- endif -%}</p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+  <div class="edit-link-container">
+    <a href="https://github.com/rust-lang-nursery/futures-rs/blob/gh-pages/{{ page.path }}">
+      Edit on GitHub
+    </a>
+  </div>
+
+  <div class="navigation-buttons">
+    {% if page.previous.url %}
+      <div class="previous">
+        <div class="label">Previous</div>
+        <a class="prev" href="{{page.previous.url | relative_url}}">{{page.previous.title}}</a>
+      </div>
+    {% endif %}
+
+    {% if page.next.url %}
+      <div class="next">
+        <div class="label">Next</div>
+        <a class="next" href="{{page.next.url | relative_url}}">{{page.next.title}}</a>
+      </div>
+    {% endif %}
+  </div>
+
+  <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+</article>
