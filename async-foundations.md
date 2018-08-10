@@ -24,6 +24,7 @@ Our goal is to bring async/await onto a path to stabilization and to provide doc
 | Spartan-S63        | eric@dattore.me              | ELD               |
 | aknudsen           | arve.knudsen@gmail.com       | aknuds1           |
 | jsgf | jsgf@fb.com | jsgf |
+| inejge | inejge@gmail.com | inejge |
 
 [Add yourself!](https://github.com/rust-lang-nursery/wg-net/blob/gh-pages/{{ page.path }})
 
