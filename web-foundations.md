@@ -26,6 +26,7 @@ Our goal is to improve web programming in Rust by:
 | Yarn | Yarn | yarnnd@gmail.com |
 | sgrif | sgrif | sean@seantheprogrammer.com |
 | xenith | xenith | xenith@xenith.org |
+| jbcden | jbcden | jbcden@gmail.com |
 
 [Add yourself!](https://github.com/rust-lang-nursery/wg-net/blob/gh-pages/{{ page.path }})
 
