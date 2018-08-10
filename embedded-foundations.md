@@ -17,6 +17,7 @@ Our goal is to support IoT development in Rust by:
 | **lkurusa** (co-lead)  | lkurusa@kernelstuff.org  | levex             |
 | jkozlowski         | mail@jakub-kozlowski.com | jkozlowski        |
 | degausser          | ricky@hosfelt.io         | deg4uss3r         |
+| dlrobertson        | dan@dlrobertson.com      | dlrobertson       |
 
 [Add yourself!](https://github.com/rust-lang-nursery/wg-net/blob/gh-pages/{{ page.path }})
 
