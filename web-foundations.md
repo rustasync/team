@@ -7,7 +7,7 @@ permalink: /web-foundations/
 Our goal is to improve web programming in Rust by:
 
 - **Bolstering web components**, i.e. assessing the state of foundational crates for web programming (like `http` and `url`), and working to improve it by writing documentation and examples, making API improvements, standardizing interfaces, and in some cases writing whole new crates.
-- **Building** ***Rise***, which is a combination of a modular web framework built on the above components, and extensive documentation on what the components are, how to use them directly, and how they integrate into a framework. The name "Rise" refers to "a rising tide lifts all boats", conveying the intent that this work is aimed to improve sharing, compatibility, and improvements across *all* web development and frameworks in Rust.
+- **Building _Tide_**, which is a combination of a modular web framework built on the above components, and extensive documentation on what the components are, how to use them directly, and how they integrate into a framework. The name "Tide" refers to "a rising tide lifts all boats", conveying the intent that this work is aimed to improve sharing, compatibility, and improvements across *all* web development and frameworks in Rust.
 
 ## Roster
 
@@ -60,25 +60,25 @@ Finally, a litmus test for the foundational components is the ability to easily 
 **Non-goals**
 It’s probably worth mentioning explicitly that “building a framework” is meant as a way of process, but isn’t a goal in and of itself. We want to help grow the ecosystem, and pinpoint which parts might need help. Example of help are writing new modules, asking clear questions, and helping document pieces that are missing documentation. We think the best way of figuring out where to help is by encouraging people to start writing their own applications and frameworks, and to document that process with some strong examples.
 
-## Rise: a modular framework and an ecosystem guide (lead: @aturon)
+## Tide: a modular framework and an ecosystem guide (lead: @aturon)
 
 We want to have a comprehensive overview of Rust’s web ecosystem. People should feel comfortable writing Web applications with Rust, and we want to help push toward that goal.
 
 In the long run, we expect most web development in Rust to take place within the context of a framework (large or small), and we expect there to be an ecosystem of frameworks to choose from. At the moment, however, the ecosystem for *async* frameworks is in its infancy, in part due to the churn around async foundations. And we expect it to take many experiments for the community to find the “best” ways of structuring web apps in Rust.
 
-Thus, we will create a project, *Rise* (as in “a rising tide raises all boats”), which is *simultaneously*:
+Thus, we will create a project, *Tide* (as in “a rising tide raises all boats”), which is *simultaneously*:
 
 - A guide to the *components* of the web ecosystem (as opposed to frameworks). The components are things like the `http` and `url` crates — libraries that underpin any web work.
 - A guide to integrating these components into a coherent framework.
 - A real, modular framework that is extremely well-documented thanks to the above.
 
-In a way, this is replaying something like the [Flask](http://flask.pocoo.org/) origin story, but for Rust: we will build Rise as a modular framework, and then write a detailed guide that documents the various components and how they come together in the framework.
+In a way, this is replaying something like the [Flask](http://flask.pocoo.org/) origin story, but for Rust: we will build Tide as a modular framework, and then write a detailed guide that documents the various components and how they come together in the framework.
 
 This work will have three distinct audiences and ways of consuming:
 
 - You can read the guide about the individual components to use them directly in a from-scratch project.
-- You can read the guide as a way to understand and use the Rise framework as a foundation for your own projects.
-- You can use the guide as a way to empower yourself to extend or modify the Rise framework, or to build your own framework.
+- You can read the guide as a way to understand and use the Tide framework as a foundation for your own projects.
+- You can use the guide as a way to empower yourself to extend or modify the Tide framework, or to build your own framework.
 
 **Non Goals**
 We don’t mind being slightly opinionated about the choices we present. The overarching goal is to provide people a good sense on how to do asynchronous web programming in Rust, not to provide a complete list of web-related packages.
