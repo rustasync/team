@@ -1,1 +1,0 @@
-# Organizing libraries and applications
