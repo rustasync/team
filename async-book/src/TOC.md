@@ -5,7 +5,6 @@
   - [Why Async?](getting_started/why_async.md)
   - [The State of Asynchronous Rust](getting_started/state_of_async_rust.md)
   - [`async`/`await!` Primer](getting_started/async_await_primer.md)
-  - [Preparing Your Environment](getting_started/prepare_env.md)
   - [Applied: HTTP Echo Server](getting_started/echo_server_example.md)
 - [Under the Hood: `Future`s and Tasks]()
   - [The `Future` Trait]()
