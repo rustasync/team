@@ -1,38 +1,75 @@
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+
 header.site-header {
   background: linear-gradient(to right, #555555, #111111, #555555);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 15px;
+  margin: 0 auto;
 
   .wrapper {
-    margin: 0 auto;
-    padding: 15px 15px;
     max-width: 800px;
+    width: 100%;
     display: flex;
+    justify-content: space-between;
     align-items: center;
 
     .header-link {
       @include underline-link(white);
-      margin-right: 30px;
     }
 
-    .github-link {
-      border: 2px solid white;
-      padding: 5px 10px;
-      color: white;
-      text-decoration: none;
-      outline: none;
-
+    .menu {
       display: flex;
       align-items: center;
 
-      img {
-        margin-right: 8px;
+      .menu-link {
+        @include underline-link(white);
+        margin-right: 30px;
+        padding: 5px 10px;
       }
 
-      &:hover, &:focus {
-        background: rgba(255, 255, 255, 0.2);
+      .github-link {
+        border: 2px solid white;
+        padding: 5px 10px;
+        color: white;
+        text-decoration: none;
+        outline: none;
+
+        display: inline-flex;
+        align-items: center;
+
+        img {
+          margin-right: 8px;
+        }
+
+        &:hover, &:focus {
+          background: rgba(255, 255, 255, 0.2);
+        }
+
+        &:active {
+          background: rgba(255, 255, 255, 0.6);
+        }
       }
 
-      &:active {
-        background: rgba(255, 255, 255, 0.6);
+      @media screen and (max-width: $breakpoint-sm) {
+        flex-direction: column;
+
+        .menu-link {
+          margin-right: 0;
+        }
+
+        .github-link {
+          margin: 5px auto;
+        }
+      }
+    }
+
+    @media screen and (max-width: $breakpoint-md) {
+      flex-direction: column;
+      .header-link {
+        margin-bottom: 10px;
       }
     }
   }
