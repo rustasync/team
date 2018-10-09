@@ -3,7 +3,6 @@
   color: $color;
   outline: none;
   font-weight: bold;
-  white-space: nowrap;
   position: relative; transform: translateX(0); // Force stacking context
 
   &::after {
