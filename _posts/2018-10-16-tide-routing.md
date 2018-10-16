@@ -70,7 +70,7 @@ fn main() {
 
     app.at("/message").post(new_message);
     app.at("/message/{}").get(get_message);
-    app.at("/message/{}").post(set_message);
+    app.at("/message/{}").put(set_message);
 
     app.serve();
 }
