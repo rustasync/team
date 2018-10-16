@@ -53,7 +53,7 @@ impl Database {
     fn insert(&mut self, msg: Message) -> u64;
 
     /// Attempt to look up a message by ID
-    fn get(&self, id: u64) -> Option<Message>;
+    fn get(&mut self, id: u64) -> Option<Message>;
 
     /// Attempt to edit a message; returns `false`
     /// if `id` is not found.
@@ -102,7 +102,7 @@ First off, we're using `async fn` to write the endpoint.
 This feature, currently available on Nightly, allows you to write futures-based code with ease. The function signature is equivalent to:
 
 ```rust
-fn new_message(db: AppState<Database>, msg: Json<Message>) -> impl Future<Output = Display(u64)>
+fn new_message(mut db: AppState<Database>, msg: Json<Message>) -> impl Future<Output = Display(u64)>
 ```
 
 Every endpoint signature has this same form:
@@ -137,7 +137,7 @@ impl<T: fmt::Display> IntoResponse for Display<T> { ... }
 Next, we'll look at updating an existing message:
 
 ```rust
-async fn set_message(db: AppState<Database>, id: Path<usize>, msg: Json<Message>) -> Result<(), NotFound> {
+async fn set_message(mut db: AppState<Database>, id: Path<usize>, msg: Json<Message>) -> Result<(), NotFound> {
     if db.set(id.0, msg.0) {
         Ok(())
     } else {
@@ -162,7 +162,7 @@ have a custom app error type with a more sophisticated serialization approach.
 Finally, we can implement retrieval of messages:
 
 ```rust
-async fn get_message(db: AppState<Database>, id: Path<usize>) -> Result<Json<Message>, NotFound> {
+async fn get_message(mut db: AppState<Database>, id: Path<usize>) -> Result<Json<Message>, NotFound> {
     if let Some(msg) = db.get(id.0) {
         Ok(Json(msg))
     } else {
