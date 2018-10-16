@@ -279,6 +279,8 @@ impl<AppData> Resource<AppData> {
 }
 ```
 
+If there's a mismatch between the number of `{}` or `*` segments and the corresponding `Path` and `Glob` extractors in an endpoint, **the resource builder API will panic on endpoint registration**. Hence, such mismatches are trivially caught before a server even runs.
+
 Most of these methods returns a handle to a `Config`, which makes it possible to tweak the configuration at a route or endpoint level. This post won't go into detail on the configuration API, but the idea is that configuration, like middleware, applies in a hierarchical fashion along the routing table of contents. So, app-level configuration provides a global default, which can then be adjusted at each step along the way down a route (or even parts of a route) and an endpoint.
 
 ## Endpoints
