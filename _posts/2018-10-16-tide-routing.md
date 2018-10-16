@@ -93,7 +93,7 @@ To finish out the app, we need to implement the endpoint functions we passed int
 Let's start with the `new_message` endpoint:
 
 ```rust
-async fn new_message(db: AppState<Database>, msg: Json<Message>) -> Display<usize> {    
+async fn new_message(mut db: AppState<Database>, msg: Json<Message>) -> Display<usize> {    
     db.insert(msg.0)
 }
 ```
@@ -102,7 +102,7 @@ First off, we're using `async fn` to write the endpoint.
 This feature, currently available on Nightly, allows you to write futures-based code with ease. The function signature is equivalent to:
 
 ```rust
-fn new_message(mut db: AppState<Database>, msg: Json<Message>) -> impl Future<Output = Display(u64)>
+fn new_message(mut db: AppState<Database>, msg: Json<Message>) -> impl Future<Output = Display(usize)>
 ```
 
 Every endpoint signature has this same form:
