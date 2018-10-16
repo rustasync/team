@@ -201,9 +201,9 @@ The design draws ideas liberally from Rocket, Gotham, and Actix-Web, with some n
 
 For routing, to achieve the clarity goals, we follow these principles:
 
-- Separate out routing via a "table of contents" approach.
-- Drive endpoint selection *solely* by URL and HTTP method. Other aspects of a request can affect middleware and the behavior of the endpoint, but *not* which endpoint is used.
-- No "fallback" in route matching; use match specificity.
+- Separate out routing via a "table of contents" approach, making it easy to see the overall app structure.
+- No "fallback" in route matching; use match specificity. In particular, the order in which routes are added has no affect, and you cannot have two identical routes.
+- Drive endpoint selection *solely* by URL and HTTP method. Other aspects of a request can affect middleware and the behavior of the endpoint, but *not* which endpoint is used in the successful case. So for example, middleware can perform authentication and avoid invoking the endpoint on failure, but it does this by explicitly choosing a separate way of providing a response, rather than relying on "fallback" in the router.
 
 At the core of the routing system are several data types:
 
