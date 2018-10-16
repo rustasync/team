@@ -23,6 +23,8 @@ The two concerns are usually somewhat coupled, because the extraction strategy s
 Rather, this is a sketch of one possible API direction, to 
 kick off discussion and collaboration. Please leave your thoughts on the [internals post].
 
+[internals post]: https://internals.rust-lang.org/t/routing-and-extraction-in-tide-a-first-sketch/8587
+
 # A simple example
 
 We'll start with a very simple example "app" built on top of the routing and extraction system from this post, and then we'll look at that system in closer detail.
