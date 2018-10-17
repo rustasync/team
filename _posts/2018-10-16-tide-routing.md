@@ -338,7 +338,7 @@ Putting this all together, from the user's perspective **an "endpoint" is any as
 
 ## Extraction
 
-Extractors work similarly to many other Rust frameworks. They are asynchronous functions that extract data from app s tate, configuration, and the request:
+Extractors work similarly to many other Rust frameworks. They are asynchronous functions that extract data from app state, configuration, and the request:
 
 ```rust
 pub trait Extractor<AppData>: Sized {
