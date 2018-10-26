@@ -202,7 +202,7 @@ The design draws ideas liberally from Rocket, Gotham, and Actix-Web, with some n
 For routing, to achieve the clarity goals, we follow these principles:
 
 - Separate out routing via a "table of contents" approach, making it easy to see the overall app structure.
-- No "fallback" in route matching; use match specificity. In particular, the order in which routes are added has no affect, and you cannot have two identical routes.
+- No "fallback" in route matching; use match specificity. In particular, the order in which routes are added has no effect, and you cannot have two identical routes.
 - Drive endpoint selection *solely* by URL and HTTP method. Other aspects of a request can affect middleware and the behavior of the endpoint, but *not* which endpoint is used in the successful case. So for example, middleware can perform authentication and avoid invoking the endpoint on failure, but it does this by explicitly choosing a separate way of providing a response, rather than relying on "fallback" in the router.
 
 At the core of the routing system are several data types:
@@ -281,7 +281,7 @@ impl<AppData> Resource<AppData> {
 
 If there's a mismatch between the number of `{}` or `*` segments and the corresponding `Path` and `Glob` extractors in an endpoint, **the resource builder API will panic on endpoint registration**. Hence, such mismatches are trivially caught before a server even runs.
 
-Most of these methods returns a handle to a `Config`, which makes it possible to tweak the configuration at a route or endpoint level. This post won't go into detail on the configuration API, but the idea is that configuration, like middleware, applies in a hierarchical fashion along the routing table of contents. So, app-level configuration provides a global default, which can then be adjusted at each step along the way down a route (or even parts of a route) and an endpoint.
+Most of these methods return a handle to a `Config`, which makes it possible to tweak the configuration at a route or endpoint level. This post won't go into detail on the configuration API, but the idea is that configuration, like middleware, applies in a hierarchical fashion along the routing table of contents. So, app-level configuration provides a global default, which can then be adjusted at each step along the way down a route (or even parts of a route) and an endpoint.
 
 ## Endpoints
 
@@ -301,7 +301,7 @@ The endpoint is given a handle to the application state and a reference to the c
 Note that the `Endpoint` trait has a `Kind` parameter which is not used in the body of the trait. This additional parameter is what makes it possible to *overload* the mounting APIs to work with  a variety of function signatures. In particular, here's a fragment of some of the provided implementations:
 
 ```rust
-/// A marker structu to avoid overlap
+/// A marker struct to avoid overlap
 struct Ty<T>(T);
 
 // An endpoint implementation for *zero* extractors.
