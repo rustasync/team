@@ -156,7 +156,7 @@ can print out the URI of the request like this:
 println!("Got request at {:?}", req.uri());
 ```
 
-You may have noticed that our ight now, we're not even doing
+You may have noticed that we're not yet doing
 anything asynchronous when handling the request-- we just respond immediately,
 so we're not taking advantage of the flexibility that `async fn` gives us.
 Rather than just returning a static message, let's try proxying the user's
