@@ -80,12 +80,13 @@ impl Future for TimerFuture {
         // Look at the shared state to see if the timer has already completed.
         let mut shared_state = self.shared_state.lock().unwrap();
         if shared_state.completed {
-            return Poll::Ready(());
+            Poll::Ready(())
         } else {
             // Set waker so that the thread can wake up the current task
             // when the timer has completed, ensuring that the future is polled
             // again and sees that `completed = true`.
             shared_state.waker = Some(lw.clone().into_waker());
+            Poll::Pending
         }
     }
 }
