@@ -58,6 +58,7 @@ impl SimpleFuture for SocketRead<'_> {
             // user of this `Future` will know to call `poll` again and
             // receive data.
             self.socket.set_readable_callback(wake);
+            Poll::Pending
         }
     }
 }
