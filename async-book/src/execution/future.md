@@ -26,7 +26,7 @@ executor driving the `Future` will call `poll` again so that the `Future` can
 make more progress.
 
 Without `wake()`, the executor would have no way of knowing when a particular
-future could make progress, and would have to be constantly polling all every
+future could make progress, and would have to be constantly polling every
 future. With `wake()`, the executor knows exactly which futures are ready to
 be `poll`ed.
 
@@ -71,7 +71,7 @@ state machines, like this:
 ```rust
 /// A SimpleFuture that runs two other futures to completion concurrently.
 ///
-/// Concurrency is acheived via the fact that calls to `poll` each future
+/// Concurrency is achieved via the fact that calls to `poll` each future
 /// may be interleaved, allowing each future to advance itself at its own pace.
 struct Join2 {
     // Each field may contain a future that should be run to completion.
@@ -135,7 +135,7 @@ enum AndThenFut {
     second: FutureB,
 }
 
-impl SimpleFuture for Join2 {
+impl SimpleFuture for AndThenFut {
     type Output = ();
     fn poll(&mut self, wake: fn()) -> Poll<Self::Output> {
         if let Some(first) = &mut self.first {

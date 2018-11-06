@@ -84,9 +84,9 @@ executor.
 ```rust
 impl Spawner {
     fn spawn(&self, future: impl Future<Output = ()> + 'static + Send) {
-        let future_obj: FutureObj::new(Box::new(future));
+        let future_obj = FutureObj::new(Box::new(future));
         let task = Arc::new(Task {
-            future: Mutex::new(Some(future_obj));
+            future: Mutex::new(Some(future_obj)),
             task_sender: self.task_sender.clone(),
         });
         self.task_sender.send(task).expect("too many tasks queued");
