@@ -10,7 +10,7 @@ the resulting `async-await-echo` folder.
 
 Let's add some dependencies to the `Cargo.toml` file:
 
-```
+```toml
 [dependencies]
 
 # The latest version of the "futures" library, which has lots of utilities
