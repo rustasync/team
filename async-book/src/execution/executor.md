@@ -96,7 +96,9 @@ impl Spawner {
 
 In order poll futures, we'll also need to create a `LocalWaker` to provide to
 poll. As discussed in the [task wakeups section], `LocalWaker`s are responsible
-for scheduling a task to be polled again once `wake` is called. The easiest way
+for scheduling a task to be polled again once `wake` is called. Remember that
+`LocalWaker`s tell the executor exactly which task has become ready, allowing
+them to poll just the futures that are ready to make progress. The easiest way
 to create a new `LocalWaker` is by implementing the `Wake` trait and then using
 the `local_waker_from_nonlocal` or `local_waker` functions to turn a `Arc<T: Wake>`
 into a `LocalWaker`. Let's implement `Wake` for our tasks to allow them to be

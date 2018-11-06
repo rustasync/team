@@ -25,7 +25,18 @@ when the `Future` is ready to make more progress. When `wake()` is called, the
 executor driving the `Future` will call `poll` again so that the `Future` can
 make more progress.
 
-For example, a simplified `SocketRead` `Future` might look like this:
+Without `wake()`, the executor would have no way of knowing when a particular
+future could make progress, and would have to be constantly polling all every
+future. With `wake()`, the executor knows exactly which futures are ready to
+be `poll`ed.
+
+For example, consider the case where we want to read from a socket that may
+or may not have data available already. If there is data, we can read it
+in and return `Poll::Ready(data)`, but if no data is ready, our future is
+blocked and can no longer make progress. When no data is available, we
+must register `wake` to be called when data becomes ready on the socket,
+which will tell the executor that our future is ready to make progress.
+A simple `SocketRead` future might look something like this:
 
 ```rust
 struct SocketRead<'a> {
