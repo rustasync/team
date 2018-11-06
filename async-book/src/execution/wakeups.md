@@ -5,9 +5,16 @@ It's common that futures aren't able to complete the first time they are
 again once it is ready to make more progress. This is done with the
 `LocalWaker` and `Waker` types.
 
+Each time a future is polled, it is polled as part of a "task". Tasks are
+top-level futures that track readiness and can schedule themselves to be
+polled by an executor.
+
 `LocalWaker` and `Waker` each provide a `wake()` method that can be used to
-tell the executor that the appropriate task should be awoken, and its top-level
-future should be polled again. Both types are also implement `clone()` so that
+tell the executor that their associated task should be awoken. When `wake()` is
+called, the executor knows that the task associated with the `Waker` is ready to
+make progress, and its future should be polled again.
+
+`LocalWaker` and `Waker` also implement `clone()` so that
 they can be copied around and stored. The difference between the two is
 thread-safety: `LocalWaker` is `!Send` and `!Sync`, and so cannot be used from
 threads other than the one it was created from. This allows `LocalWaker`

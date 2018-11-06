@@ -120,7 +120,7 @@ impl SimpleFuture for Join2 {
 ```
 
 This shows how multiple futures can be run simultaneously without needing
-separately allocated tasks, allowing for more efficient asynchronous programs.
+separate allocations, allowing for more efficient asynchronous programs.
 Similarly, multiple sequential futures can be run one after another, like this:
 
 ```rust
@@ -179,10 +179,9 @@ in order to enable async/await.
 Secondly, `wake: fn()` has changed to `LocalWaker`. In `SimpleFuture`, we used
 a call to a function pointer (`fn()`) to tell the future executor that the
 future in question should be polled. However, since `fn()` is zero-sized, it
-can't store any data about *which* task was awoken, meaning that the number of
-distinct wake-able tasks is limited by the number of functions declared at
-compile-time. In a real-world scenario, however, a complex application like a
-web server may have thousands of different tasks whose wakeups should all be
+can't store any data about *which* `Future` called `wake`.
+In a real-world scenario, a complex application like a web server may have
+thousands of different connections whose wakeups should all be
 managed separately. This is where `LocalWaker` and its sibling type `Waker`
 come in.
 
