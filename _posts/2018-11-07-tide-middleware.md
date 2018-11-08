@@ -9,7 +9,7 @@ After the [positive response][internals-old] to the routing and extraction propo
 
 The repository is populated with numerous issues, including quite a few marked as [good first issue]. At this point, enough of the skeleton of Tide is in place to turn continued development into a fully collaborative effort. This is a great time to get involved and shape what will eventually become the initial 0.1 release!
 
-[internals-old]: ttps://internals.rust-lang.org/t/routing-and-extraction-in-tide-a-first-sketch/8587
+[internals-old]: https://internals.rust-lang.org/t/routing-and-extraction-in-tide-a-first-sketch/8587
 [repo]: https://github.com/rust-net-web/tide
 [good first issue]: https://github.com/rust-net-web/tide/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22
 
