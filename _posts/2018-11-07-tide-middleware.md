@@ -37,6 +37,7 @@ pub trait Middleware<Data>: Send + Sync {
         head: &Head,
         resp: Response,
     ) -> FutureObj<'static, Response>;
+}
 ```
 
 In this design, middleware can:
