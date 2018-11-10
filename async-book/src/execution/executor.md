@@ -1,5 +1,21 @@
 # Applied: Build an Executor
 
+`Future`s are lazy and must be actively driven to completion in order to do
+anything. A common way to drive a future to completion is to `await!` it inside
+an `async` function, but that just pushes the problem one level up: who will
+run the futures returned from the top-level `async` functions? The answer is
+that we need a `Future` executor.
+
+`Future` executors take a set of top-level `Future`s and run them to completion
+by calling `poll` whenever the `Future` can make progress. Typically, an
+executor will `poll` a future once to start off. When `Future`s indicate that
+they are ready to make progress by calling `wake()`, they are placed back
+onto a queue and `poll` is called again, repeating until the `Future` has
+completed.
+
+In this section, we'll write our own simple executor capable of running a large
+number of top-level futures to completion concurrently.
+
 For this one, we're going to have to include the `futures` crate in order to
 get the `FutureObj` type, which is a dynamically-dispatched `Future`, similar
 to `Box<dyn Future<Output = T>>`. `Cargo.toml` should look something like this:
@@ -49,7 +65,7 @@ itself.
 ```rust
 /// Task executor that receives tasks off of a channel and runs them.
 struct Executor {
-    task_receiver: Receiver<Arc<Task>>,
+    ready_queue: Receiver<Arc<Task>>,
 }
 
 /// `Spawner` spawns new futures onto the task channel.
@@ -61,7 +77,14 @@ struct Spawner {
 /// A future that can reschedule itself to be polled using a channel.
 struct Task {
     // In-progress future that should be pushed to completion
+    //
+    // The `Mutex` is not necessary for correctness, since we only have
+    // one thread executing tasks at once. However, `rustc` isn't smart
+    // enough to know that `future` is only mutated from one thread,
+    // so we use it in order to provide safety. A production executor would
+    // not need this, and could use `UnsafeCell` instead.
     future: Mutex<Option<FutureObj<'static, ()>>>,
+
     // Handle to spawn tasks onto the task queue
     task_sender: SyncSender<Arc<Task>>,
 }
@@ -71,8 +94,8 @@ fn new_executor_and_spawner() -> (Executor, Spawner) {
     // This is just to make `sync_channel` happy, and wouldn't be present in
     // a real executor.
     const MAX_QUEUED_TASKS: usize = 10_000;
-    let (task_sender, task_receiver) = sync_channel(MAX_QUEUED_TASKS);
-    (Executor { task_receiver }, Spawner { task_sender})
+    let (task_sender, ready_queue) = sync_channel(MAX_QUEUED_TASKS);
+    (Executor { ready_queue }, Spawner { task_sender})
 }
 ```
 
@@ -122,7 +145,7 @@ needs to pick up the task and poll it. Let's implement that:
 ```rust
 impl Executor {
     fn run(&self) {
-        while let Ok(task) = self.task_receiver.recv() {
+        while let Ok(task) = self.ready_queue.recv() {
             let mut future_slot = task.future.lock().unwrap();
             // Take the future, and if it has not yet completed (is still Some),
             // poll it in an attempt to complete it.
