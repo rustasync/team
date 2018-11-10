@@ -6,8 +6,7 @@ again once it is ready to make more progress. This is done with the
 `LocalWaker` and `Waker` types.
 
 Each time a future is polled, it is polled as part of a "task". Tasks are
-top-level futures that track readiness and can schedule themselves to be
-polled by an executor.
+the top-level futures that have been submitted to an executor.
 
 `LocalWaker` and `Waker` each provide a `wake()` method that can be used to
 tell the executor that their associated task should be awoken. When `wake()` is
