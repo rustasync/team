@@ -120,7 +120,7 @@ impl Socket {
         local_executor.event_map.insert(id, lw.clone());
         local_executor.add_io_event_interest(
             &self.socket_file_descriptor,
-            Event { id, signals: READABL },
+            Event { id, signals: READABLE },
         );
     }
 }
@@ -131,5 +131,5 @@ IO event to the appropriate `LocalWaker`, which will wake up the corresponding
 task, allowing the executor to drive more tasks to completion before returning
 to check for more IO events (and the cycle continues...).
 
-[The `Future` Trait`]: TODO
+[The `Future` Trait]: TODO
 [`mio`]: https://github.com/carllerche/mio
