@@ -19,7 +19,7 @@
   - [Applied: XXX]()
 - [Pinning](pinning/chapter.md)
   - [Practical Usage](pinning/chapter.md#how-to-use-pinning)
-- [Streams]()
+- [Streams](streams/chapter.md)
   - [Patterns: Iteration and Concurrency]()
 - [Executing Multiple Futures at a Time]()
   - [`select!` and `join!`]()
