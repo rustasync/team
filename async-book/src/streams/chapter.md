@@ -73,7 +73,7 @@ let fut = async {
 ```
 
 However, if we're just processing one element at a time, we're potentially
-leaving behind opportunity for concurrencty, which is, after all, why we're
+leaving behind opportunity for concurrency, which is, after all, why we're
 writing async code in the first place. To process multiple items from a stream
 concurrently, use the `for_each_concurrent` and `try_for_each_concurrent`
 methods:
