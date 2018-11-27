@@ -71,7 +71,7 @@ pub struct RequestContext<'a, Data> {
 
 impl<'a, Data: Clone + Send> RequestContext<'a, Data> {
     /// Consume this context, and run remaining middleware chain to completion.
-    pub fn next(mut self) -> FutureObj<'a, Response>;
+    pub fn next(self) -> FutureObj<'a, Response> { ... }
 }
 ```
 
@@ -93,7 +93,7 @@ persist until after the rest of the pipeline has executed.
 In the new interface, a new `FutureObj` only needs to be allocated when the middleware is performing
 asynchronous work or steps that occur after the rest of the pipeline.
 
-- The new interfae is arguably simpler and tidier.
+- The new interface is arguably simpler and tidier.
 
 Thanks to @tirr-c for working this all out!
 
@@ -114,7 +114,7 @@ let mut app = App::new(your_data);
 app.at("/some/prefix").nest(|r| {
     r.middleware(some_middleware);      // applies to everything under `/some/prefix`
     r.at("/").get(prefix_top_endpoint); // matches `/some/prefix`
-    r.at("/foo").get(foo_endpoint);     //matches `/some/prefix/foo`
+    r.at("/foo").get(foo_endpoint);     // matches `/some/prefix/foo`
 });
 
 // no middleware is applied to this route
@@ -185,7 +185,7 @@ are some highlights.
 
 ## Configuration
 
-- ([Issue 5]:) Build a configuration system, including the ability to customize extractor behavior at point in a router.
+- ([Issue 5]): Build a configuration system, including the ability to customize extractor behavior at point in a router.
 
 [Issue 5]: https://github.com/rust-net-web/tide/issues/5
 
