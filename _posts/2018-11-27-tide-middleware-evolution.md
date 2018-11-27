@@ -142,7 +142,7 @@ We expect that this same nesting setup will have many other uses over time, incl
 
 Thanks again go to @tirr-c for working through several iterations of this design!
 
-# Computed values: an exmaple
+# Computed values: an example
 
 Finally, we now have a full example of using computed values for cookie parsing,
 which you can find [here][cookies]! A very important area of ongoing work will be
@@ -215,7 +215,7 @@ are some highlights.
 
 # Thanks!
 
-Finally, a shout out to the 20 people (!) who have already contributed to Tide:
+Finally, a shout out to the 19 people (!) who have already contributed to Tide:
 
 - Aaron Turon
 - Bhargav Voleti
@@ -231,7 +231,6 @@ Finally, a shout out to the 20 people (!) who have already contributed to Tide:
 - Simon Andersson
 - Taylor Cramer
 - Theodore Zilist
-- Tirr
 - Wonwoo Choi
 - Yoshua Wuyts
 - csmoe
