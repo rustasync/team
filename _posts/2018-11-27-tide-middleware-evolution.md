@@ -165,10 +165,8 @@ are some highlights.
 
 ## Routing
 
-- [#62]: Provide a "catch-all" routing mechanism, often expressed as `*` in routing syntax,
-which will match any path with a given prefix.
-- [#82]: Work out a design for "internal redirects", where middleware or endpoints can
-abort the current request-handling pipeline in favor of a redirected request.
+- [#62]: Provide a "catch-all" routing mechanism, often expressed as `*` in routing syntax, which will match any path with a given prefix.
+- [#82]: Work out a design for "internal redirects", where middleware or endpoints can abort the current request-handling pipeline in favor of a redirected request.
 - [#24]: Design an API for programmatically generatinng URLs based on the routing table.
 
 [#62]: https://github.com/rust-net-web/tide/issues/62
@@ -177,10 +175,8 @@ abort the current request-handling pipeline in favor of a redirected request.
 
 ## Middleware
 
-- [#73]: Make a "middleware stack" more of a first-class concept, ultimately supporting
-debugging and other hooks.
-- [#61]: Provide some notion of "always-applied" middleware, which is used even if there
-is no matching route.
+- [#73]: Make a "middleware stack" more of a first-class concept, ultimately supporting debugging and other hooks.
+- [#61]: Provide some notion of "always-applied" middleware, which is used even if there is no matching route.
 - [#26]: Build middleware for compression.
 
 [#73]: https://github.com/rust-net-web/tide/issues/73
