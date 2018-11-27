@@ -222,22 +222,22 @@ and have an initial milestone [here](https://github.com/rust-net-web/tide/milest
 
 Finally, a shout out to the 19 people (!) who have already contributed to Tide:
 
-- Aaron Turon
-- Bhargav Voleti
-- Chris Stinson
-- David Tolnay
-- Fuyang Liu
-- Harikrishnan Menon
-- Heiko Seeberger
-- Hendrik Sollich
-- Joe ST
-- Jonas Nicklas
-- Pradip Caulagi
-- Simon Andersson
-- Taylor Cramer
-- Theodore Zilist
-- Wonwoo Choi
-- Yoshua Wuyts
-- csmoe
-- ibaryshnikov
-- lixiaohui
+- [Aaron Turon](https://github.com/aturon)
+- [Bhargav Voleti](https://github.com/bIgBV)
+- [Chris Stinson](https://github.com/Stinners)
+- [David Tolnay](https://github.com/dtolnay)
+- [Fuyang Liu](https://github.com/liufuyang)
+- [Harikrishnan Menon](https://github.com/DeltaManiac)
+- [Heiko Seeberger](https://github.com/hseeberger)
+- [Hendrik Sollich](https://github.com/hoodie)
+- [Joe ST](https://github.com/fbstj)
+- [Jonas Nicklas](https://github.com/jnicklas)
+- [Pradip Caulagi](https://github.com/caulagi)
+- [Simon Andersson](https://github.com/simonasker)
+- [Taylor Cramer](https://github.com/cramertj)
+- [Theodore Zilist](https://github.com/tzilist)
+- [Wonwoo Choi](https://github.com/tirr-c)
+- [Yoshua Wuyts](https://github.com/yoshuawuyts)
+- [csmoe](https://github.com/csmoe)
+- [Il'ya Baryshnikov](https://github.com/ibaryshnikov)
+- [lixiaohui](https://github.com/leaxoy)
