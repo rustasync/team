@@ -213,6 +213,11 @@ are some highlights.
 
 ## A 0.1 release
 
+- ([Issue 60]): Finally, we've begun discussing what should land prior to a 0.1 release,
+and have an initial milestone [here](https://github.com/rust-net-web/tide/milestone/1).
+
+[Issue 60]: https://github.com/rust-net-web/tide/issues/60
+
 # Thanks!
 
 Finally, a shout out to the 19 people (!) who have already contributed to Tide:
