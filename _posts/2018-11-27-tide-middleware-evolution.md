@@ -165,52 +165,51 @@ are some highlights.
 
 ## Routing
 
-- [#62]: Provide a "catch-all" routing mechanism, often expressed as `*` in routing syntax, which will match any path with a given prefix.
-- [#82]: Work out a design for "internal redirects", where middleware or endpoints can abort the current request-handling pipeline in favor of a redirected request.
-- [#24]: Design an API for programmatically generatinng URLs based on the routing table.
+- ([Issue 62]): Provide a "catch-all" routing mechanism, often expressed as `*` in routing syntax, which will match any path with a given prefix.
+- ([Issue 82]): Work out a design for "internal redirects", where middleware or endpoints can abort the current request-handling pipeline in favor of a redirected request.
+- ([Issue 24]): Design an API for programmatically generatinng URLs based on the routing table.
 
-[#62]: https://github.com/rust-net-web/tide/issues/62
-[#82]: https://github.com/rust-net-web/tide/issues/82
-[#24]:  https://github.com/rust-net-web/tide/issues/24
+[Issue 62]: https://github.com/rust-net-web/tide/issues/62
+[Issue 82]: https://github.com/rust-net-web/tide/issues/82
+[Issue 24]: https://github.com/rust-net-web/tide/issues/24
 
 ## Middleware
 
-- [#73]: Make a "middleware stack" more of a first-class concept, ultimately supporting debugging and other hooks.
-- [#61]: Provide some notion of "always-applied" middleware, which is used even if there is no matching route.
-- [#26]: Build middleware for compression.
+- ([Issue 73]): Make a "middleware stack" more of a first-class concept, ultimately supporting debugging and other hooks.
+- ([Issue 26]): Build middleware for compression.
+- ([Issue 61]): Provide some notion of "always-applied" middleware, which is used even if there is no matching route.
 
-[#73]: https://github.com/rust-net-web/tide/issues/73
-[#61]: https://github.com/rust-net-web/tide/issues/61
-[#26]: https://github.com/rust-net-web/tide/issues/26
+[Issue 73]: https://github.com/rust-net-web/tide/issues/73
+[Issue 61]: https://github.com/rust-net-web/tide/issues/61
+[Issue 26]: https://github.com/rust-net-web/tide/issues/26
 
 ## Configuration
 
-- [#5]: Build a configuration system, including the ability to customize extractor behavior
-at point in a router.
+- ([Issue 5]:) Build a configuration system, including the ability to customize extractor behavior at point in a router.
 
-[#5]: https://github.com/rust-net-web/tide/issues/5
+[Issue 5]: https://github.com/rust-net-web/tide/issues/5
 
 ## Additional HTTP methods
 
-- [#51]: Provide built-in support for `OPTIONS`.
+- ([Issue 51]): Provide built-in support for `OPTIONS`.
 
-[#51]: https://github.com/rust-net-web/tide/issues/51
+[Issue 51]: https://github.com/rust-net-web/tide/issues/51
 
 ## Testing
 
-- [#83]: Explore app testing approaches like mocking.
+- ([Issue 83]): Explore app testing approaches like mocking.
 
-[#83]: https://github.com/rust-net-web/tide/issues/83
+[Issue 83]: https://github.com/rust-net-web/tide/issues/83
 
 ## Documentation
 
-- [#77]: Start writing a high-level guide for using Tide.
-- [#20]: Build some larger example applications.
-- [#19]: Document how endpoint signatures (and hence, extractors) work.
+- ([Issue 77]): Start writing a high-level guide for using Tide.
+- ([Issue 20]): Build some larger example applications.
+- ([Issue 19]): Document how endpoint signatures (and hence, extractors) work.
 
-[#77]: https://github.com/rust-net-web/tide/issues/77
-[#20]: https://github.com/rust-net-web/tide/issues/20
-[#19]: https://github.com/rust-net-web/tide/issues/19
+[Issue 77]: https://github.com/rust-net-web/tide/issues/77
+[Issue 20]: https://github.com/rust-net-web/tide/issues/20
+[Issue 19]: https://github.com/rust-net-web/tide/issues/19
 
 ## A 0.1 release
 
