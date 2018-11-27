@@ -167,7 +167,7 @@ are some highlights.
 
 - ([Issue 62]): Provide a "catch-all" routing mechanism, often expressed as `*` in routing syntax, which will match any path with a given prefix.
 - ([Issue 82]): Work out a design for "internal redirects", where middleware or endpoints can abort the current request-handling pipeline in favor of a redirected request.
-- ([Issue 24]): Design an API for programmatically generatinng URLs based on the routing table.
+- ([Issue 24]): Design an API for programmatically generating URLs based on the routing table.
 
 [Issue 62]: https://github.com/rust-net-web/tide/issues/62
 [Issue 82]: https://github.com/rust-net-web/tide/issues/82
