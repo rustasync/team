@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Rust Networking Survey 2018"
+title:  "Rust Web Survey 2018"
 author: Bhargav Voleti
 date:   2018-11-28
 ---
