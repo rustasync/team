@@ -29,7 +29,7 @@ Rust aims to make writing systems software on various platforms easier. This is 
 
 92% of our respondents have written a web application in a different language and provide information regarding what Rust can learn from those languages. People find that they miss the vast batteries included standard library present in programming languages such as Go and Python which let you write performant web applications and services straight out of the box.
 
-But all is not so bleak! The Rust language continues to interest people as the most popular reason why people chose to use Rust for they web service/application was the language itself at 90%. On top of the features of the Rust languages, the next reason was the runtime performance Rust offered at 70%.
+But all is not so bleak! The Rust language continues to interest people as the most popular reason why people chose to use Rust for their web service/application was the language itself at 90%. On top of the features of the Rust languages, the next reason was the runtime performance Rust offered at 70%.
 
 
 # Conclusion
