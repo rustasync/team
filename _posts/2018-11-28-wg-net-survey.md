@@ -19,7 +19,7 @@ We recently sent out a survey regarding the state of the current Rust web ecosys
 
 # The issues
 
-Coming to what people feel is missing from the Rust networking/web ecosystem, 65% of users find the lack of examples to be the biggest issue currently with the ecosystem followed by the lack of documentation at 53%. This is something that is actively being addressed by initiatives such as the [Tokio Doc Blitz](https://tokio.rs/blog/2018-10-doc-blitz/) and the [Rust async book](https://github.com/rust-lang-nursery/wg-net/tree/master/async-book).
+Coming to what people feel is missing from the Rust networking/web ecosystem, 65% of users find the lack of examples to be the biggest issue currently with the ecosystem followed by the lack of documentation at 53%. This is something that is actively being addressed by initiatives such as the [Tokio Doc Push](https://tokio.rs/blog/2018-10-doc-blitz/) and the [Rust async book](https://github.com/rust-lang-nursery/wg-net/tree/master/async-book).
 
 There is also users talking about the lack of a One True Framework a la [Django](https://www.djangoproject.com/) in Python and [Rails](https://rubyonrails.org/) in ruby. This is something which was considered by the networking work group and to this end, work has begun on [Tide](https://github.com/rust-net-web/tide/) a framework meant to provide a good starting point for people to get started with building web applications in Rust. Another goal for Tide is to serve as documentation for people wanting to dig deeper and learn how to write such services in Rust.
 
