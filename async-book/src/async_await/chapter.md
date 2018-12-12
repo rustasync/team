@@ -40,7 +40,7 @@ As we saw in the first chapter, `async` bodies and other futures are lazy:
 they do nothing until they are run. The most common way to run a `Future`
 is to `await!` it. When `await!` is called on a `Future`, it will attempt
 to run it to completion. If the `Future` is blocked, it will yield control
-of the current thread. When more progress can be made, the `Future` be picked
+of the current thread. When more progress can be made, the `Future` will be picked
 up by the executor and will resume running, allowing the `await!` to resolve.
 
 ## `async` Lifetimes
