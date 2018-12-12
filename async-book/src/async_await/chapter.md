@@ -147,7 +147,7 @@ during a call to `await!`.)
 
 Similarly, it isn't a good idea to hold a traditional non-futures-aware lock
 across an `await!`, as it can cause the threadpool to lock up: one task could
-take out a lock, `awaits!` and yield to the executor, allowing another task to
+take out a lock, `await!` and yield to the executor, allowing another task to
 attempt to take the lock and cause a deadlock. To avoid this, use the `Mutex`
 in `futures::lock` rather than the one from `std::sync`.
 
