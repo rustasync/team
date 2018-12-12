@@ -91,7 +91,7 @@ that of the `Future` returned from the call to `foo`.
 ## `async move`
 
 `async` blocks and closures allow the `move` keyword, much like normal
-closures. An `async move` body will take ownership of the variables it
+closures. An `async move` block will take ownership of the variables it
 references, allowing it to outlive the current scope, but giving up the ability
 to share those variables with other code:
 
