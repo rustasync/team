@@ -21,7 +21,7 @@ fn bar() -> impl Future<Output = u8> {
     // This `async` block results in a type that implements
     // `Future<Output = u8>`.
     async {
-        let x: u8 = await!(5);
+        let x: u8 = await!(foo());
         x + 5
     }
 }
