@@ -1,6 +1,6 @@
 # `async`/`await!`
 
-In [the first chapter], we took a breif look at `async`/`await!` and used
+In [the first chapter], we took a brief look at `async`/`await!` and used
 it to build a simple server. This chapter will discuss `async`/`await!` in
 greater detail, explaining how it works and how `async` code differs from
 traditional Rust programs.
