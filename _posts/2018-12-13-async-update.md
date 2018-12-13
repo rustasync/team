@@ -191,7 +191,7 @@ can build on. As such, the API is an extraction of the one initially used intern
 [http-service]: https://docs.rs/http-service
 [Tide]: https://github.com/rust-net-web/tide/
 
-- **Tyger**, a small crate that builds on top of [Hyper] to provide a direct http-service
+- Tyger (forthcoming), a small crate that builds on top of [Hyper] to provide a direct http-service
 interface (and thus usable with async/await directly, without shims).
 Ultimately Tyger is likely to grow some other higher-level amenities, to complement
 Hyper's relatively low-level focus. As with http-service, the crate is an early extraction
