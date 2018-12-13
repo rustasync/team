@@ -95,9 +95,10 @@ this new world.
 Part of the work around async/await this year has been writing a new
 book, covering the syntax, the underlying `Future` API, and ultimately
 various programming patterns that emerge. @cramertj has written [an early
-draft][apr], which is already useful for understanding these concepts.
+draft][apr] (repo [here](https://github.com/rust-lang/async-book), 
+which is already useful for understanding these concepts.
 
-[apr]: https://github.com/rust-lang-nursery/wg-net/blob/master/async-book/src/TOC.md
+[apr]: https://rust-lang.github.io/async-book/
 
 # The syntax
 
