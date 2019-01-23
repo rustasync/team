@@ -18,6 +18,7 @@ Our goal is to support IoT development in Rust by:
 | jkozlowski         | mail@jakub-kozlowski.com | jkozlowski        |
 | degausser          | ricky@hosfelt.io         | deg4uss3r         |
 | dlrobertson        | dan@dlrobertson.com      | dlrobertson       |
+| jrobsonchase       | josh@robsonchase.com     | jrobsonchase      |
 
 [Add yourself!](https://github.com/rust-lang-nursery/wg-net/blob/gh-pages/{{ page.path }})
 
