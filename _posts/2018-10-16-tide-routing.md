@@ -17,7 +17,7 @@ This post continues the [series on Tide][last-post], sketching a *possible* desi
 
 The two concerns are usually somewhat coupled, because the extraction strategy shapes the signature of the endpoints that are being routed to. As we'll see in this post, however, the coupling can be extremely loose.
 
-[last-post]:  https://rust-lang-nursery.github.io/wg-net/2018/09/11/tide.html
+[last-post]:  https://rust-lang-nursery.github.io/team/2018/09/11/tide.html
 
 **_Nothing in this post is set in stone!_** 
 Rather, this is a sketch of one possible API direction, to 

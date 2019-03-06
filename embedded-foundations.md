@@ -20,7 +20,7 @@ Our goal is to support IoT development in Rust by:
 | dlrobertson        | dan@dlrobertson.com      | dlrobertson       |
 | jrobsonchase       | josh@robsonchase.com     | jrobsonchase      |
 
-[Add yourself!](https://github.com/rust-lang-nursery/wg-net/blob/gh-pages/{{ page.path }})
+[Add yourself!](https://github.com/rustasync/team/blob/gh-pages/{{ page.path }})
 
 # Detailed vision
 

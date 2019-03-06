@@ -19,8 +19,8 @@ The [issue tracker] on the WG-net repo is a primary point of coordination. If yo
 
 The WG is focused on three major areas for 2018, each of which has a dedicated subgroup, pair of leaders, and Discord channel for discussion:
 
-- [Async foundations](/wg-net/async-foundations)
-- [Embedded foundations](/wg-net/embedded-foundations)
-- [Web foundations](/wg-net/web-foundations)
+- [Async foundations](/team/async-foundations)
+- [Embedded foundations](/team/embedded-foundations)
+- [Web foundations](/team/web-foundations)
 
 If you want to get involved in one or more of these efforts, hop on [Discord][discord] and say hello, or take a look at the [issue tracker].

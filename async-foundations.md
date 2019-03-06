@@ -8,7 +8,7 @@ Our goal is to bring async/await onto a path to stabilization and to provide doc
 
 - **Futures 0.3 and async/await** should be vetted, well-documented, well-integrated, future-proof, and on a clear path to stabilization.
 - **The futures-rs blog** aims to give regular updates on the latest changes to `async`/`await` and the futures library.
-- **The** [**Asynchronous Programming in Rust book**](https://github.com/rust-lang-nursery/wg-net/blob/master/async-book/src/SUMMARY.md) ****should have a complete draft, covering async/await, core futures concepts, Tokio, and enough of the ecosystem to give good examples and guidance. It should also explicitly talk about the stabilization situation, including how to bridge between stable 0.1 and unstable 0.3 worlds.
+- **The** [**Asynchronous Programming in Rust book**](https://rust-lang.github.io/async-book/) ****should have a complete draft, covering async/await, core futures concepts, Tokio, and enough of the ecosystem to give good examples and guidance. It should also explicitly talk about the stabilization situation, including how to bridge between stable 0.1 and unstable 0.3 worlds.
 
 ## Roster
 
@@ -26,7 +26,7 @@ Our goal is to bring async/await onto a path to stabilization and to provide doc
 | jsgf | jsgf@fb.com | jsgf |
 | inejge | inejge@gmail.com | inejge |
 
-[Add yourself!](https://github.com/rust-lang-nursery/wg-net/blob/gh-pages/{{ page.path }})
+[Add yourself!](https://github.com/rustasync/team/blob/gh-pages/{{ page.path }})
 
 # Futures 0.3 and async/await
 
