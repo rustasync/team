@@ -13,13 +13,13 @@ We recently sent out a survey regarding the state of the current Rust web ecosys
   Rust is a relatively new language and our users reflect that, with more than 60% of them having only used it for the last two years. Coming to web development, the two most popular frameworks for building web applications are [Rocket](https://rocket.rs/) followed by [Actix](https://actix.rs) at 27% and 24% respectively. Some of the many other popular web frameworks currently being used to build web applications are [Iron](http://ironframework.io/), [Gotham](https://gotham.rs), [Warp](https://github.com/seanmonstar/warp/) and [Tower-web](https://github.com/carllerche/tower-web). As we can see in the figure, 20% of people choose to not use any web frameworks and instead opt to build on top of the standard library or [Hyper](http://hyper.rs) when building their services.
 
 
-<img src="/wg-net/assets/images/wg-net-survey-frameworks.png" alt="Frameworks pie chart" width="100%"/>
+<img src="/team/assets/images/wg-net-survey-frameworks.png" alt="Frameworks pie chart" width="100%"/>
 
 
 
 # The issues
 
-Coming to what people feel is missing from the Rust networking/web ecosystem, 65% of users find the lack of examples to be the biggest issue currently with the ecosystem followed by the lack of documentation at 53%. This is something that is actively being addressed by initiatives such as the [Tokio Doc Push](https://tokio.rs/blog/2018-10-doc-blitz/) and the [Rust async book](https://github.com/rust-lang-nursery/wg-net/tree/master/async-book).
+Coming to what people feel is missing from the Rust networking/web ecosystem, 65% of users find the lack of examples to be the biggest issue currently with the ecosystem followed by the lack of documentation at 53%. This is something that is actively being addressed by initiatives such as the [Tokio Doc Push](https://tokio.rs/blog/2018-10-doc-blitz/) and the [Rust async book](https://rust-lang.github.io/async-book/).
 
 There is also users talking about the lack of a One True Framework a la [Django](https://www.djangoproject.com/) in Python and [Rails](https://rubyonrails.org/) in ruby. This is something which was considered by the networking work group and to this end, work has begun on [Tide](https://github.com/rust-net-web/tide/) a framework meant to provide a good starting point for people to get started with building web applications in Rust. Another goal for Tide is to serve as documentation for people wanting to dig deeper and learn how to write such services in Rust.
 

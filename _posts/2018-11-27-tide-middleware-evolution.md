@@ -16,7 +16,7 @@ marked as good [starter issues], and there's ongoing discussion for what we'd
 like to see in a [0.1 release]. Getting involved now is the best opportunity
 to help shape the direction of this community-built framework!
 
-[last post]: https://rust-lang-nursery.github.io/wg-net/2018/11/07/tide-middleware.html
+[last post]: https://rust-lang-nursery.github.io/team/2018/11/07/tide-middleware.html
 [starter issues]: https://github.com/rust-net-web/tide/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22
 [0.1 release]: https://github.com/rust-net-web/tide/issues/60
 
