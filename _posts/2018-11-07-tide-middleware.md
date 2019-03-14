@@ -65,7 +65,7 @@ Ultimately we'll want to support more fine-grained application of middleware, e.
 
 # Computed values
 
-While the above middleware story is simple and flexible, it's often overkill. One new idea in Tide is *computed values*, which are values that can be produced on demand from a request. For example, you often want to parse the query portion of a URL into components. This parsing might be needed in the endpoint, or in various middleware. Rather than writing middleware to perform the parsing and stash it in `extensions` (which requires carefully ordering the middleware, and mucking around with request state), we can use a computed value to lazily perform the parsing as soon as it's request. The computed value will then *cache* the parsed result for the request, and any further uses will get the cached value.
+While the above middleware story is simple and flexible, it's often overkill. One new idea in Tide is *computed values*, which are values that can be produced on demand from a request. For example, you often want to parse the query portion of a URL into components. This parsing might be needed in the endpoint, or in various middleware. Rather than writing middleware to perform the parsing and stash it in `extensions` (which requires carefully ordering the middleware, and mucking around with request state), we can use a computed value to lazily perform the parsing as soon as it's requested. The computed value will then *cache* the parsed result for the request, and any further uses will get the cached value.
 
 Concretely, we have a `Compute` trait for computed values, with the required `compute_fresh` function saying how to compute the value from scratch, and the provided `compute` method handling caching automatically:
 
