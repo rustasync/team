@@ -28,9 +28,9 @@ The project has seen a lot of discussion happen in [issues][issues] as well as t
 
 There has been some discussion on the [Sprint 1 goals issue][sprint-goals], and a really good overview for the features to work on has been been [outlined by @gruberb][goals-outline]. This outline a great basis to set up the roadmap for Tide. It consists of the following broad goals:
 
-* [  ] Stabilize tide core.
-* [  ] Session management
-* [  ] Authentication
+* [ ] Stabilize tide core.
+* [ ] Session management
+* [ ] Authentication
 
 ## Stabilize tide core
 [stabilize-tide-core]: #stabilize-tide-core
@@ -41,13 +41,13 @@ Currently [the PR][context-pr] is open, with most of the core changes done. Ther
 ### Goals
 [stabilize-core-goals]: #stabilize-core-goals
 
-* [  ] Merge PR
-* [  ] Resolve design questions.
+* [ ] Merge PR
+* [ ] Resolve design questions.
 
 ## Session management
 [session-management]: #session-management
 
-Current discussion around session management in tide is centered around the [design issue][issues-9] for the same. @tomhoule has got a working generic session implementation written against the new tide core changes. You can check the [project out here][session-project]. This provides types to define middleware and custom session storage backends which hook directly into the `Context` object proided to the endpoint function.
+Current discussion around session management in tide is centered around the [design issue][issues-9] for the same. @tomhoule has got a working generic session implementation written against the new tide core changes. You can check the [project out here][session-project]. This provides types to define middleware and custom session storage backends which hook directly into the `Context` object provided to the endpoint function.
 
 The current discussion is centered on providing a simple in memory session storage with Cookies as the default in the framework, and provide external crates to hook into external data stores.
 
@@ -55,8 +55,8 @@ This change is currently blocked by the tide core changes.
 
 ### Goals
 
-* [  ] Stable API.
-* [  ] In memory session backend
+* [ ] Stable API.
+* [ ] In memory session backend
 
 ## Authentication
 [Authentication]: #authentication
@@ -65,7 +65,7 @@ Currently rust web frameworks have disparate ways of authentication. One of the 
 
 ### Goals
 
-* [  ] Design authentication API in Tide.
+* [ ] Design authentication API in Tide.
 
 # Areweasyncyet
 [Areweasyncyet]: #areweasyncyet
