@@ -67,22 +67,54 @@ Currently rust web frameworks have disparate ways of authentication. One of the 
 
 * [ ] Design authentication API in Tide.
 
-# Areweasyncyet
-[Areweasyncyet]: #areweasyncyet
-
-TODO
-
-# Arewewebyet
-[Arewewebyet]: #arewewebyet
-
-TODO
-
 [issues]: https://github.com/rustasync/tide/issues/
 [context-pr]: https://github.com/rustasync/tide/pull/156
 [issues-9]: https://github.com/rustasync/tide/issues/9
 [issues-99]: https://github.com/rustasync/tide/issues/99
 [issues-63]: https://github.com/rustasync/tide/issues/63
 [issues-24]: https://github.com/rustasync/tide/issues/24
+
 [sprint-goals]: https://github.com/rustasync/team/issues/96
 [goals-outline]: https://github.com/rustasync/team/issues/96#issuecomment-471552499
 [session-project]: https://github.com/tomhoule/tide-cookie-session
+
+# Websites
+[websites]: #websites
+
+There are two primary websites for keeping tack of async await progress and web development progress:
+
+* [Areweasyncyet][areweasyncyet]
+* [Arewewebyet][Arewewebyet]
+
+There isn't a lot that has been discussed around these two as they are in maintenance mode and work will mostly be around updating the content as and when appropriate.
+
+[areweasyncyet]: https://areweasyncyet.rs/
+[arewewebyet]: http://www.arewewebyet.org/
+
+# Async book
+[async-book]: #async-book
+
+The current [Async book][async-book] is a great start at explaining the details of why `async/await` is important, but is light on the details. As mentioned in [this issue][lucio-issue], there are discussions on improving the contents and providing a starting point for people wanting to learn about how the feature works. There are also plans for adding sections for helping maintainers of existing libraries to migrate to std futures.
+
+The book can also provide guides for building different kinds of software using `async/await` as well as provide guides for people wanting to help out with the documentation and migration effort, akin to [Tokio's doc-blitz][doc-blitz].
+
+
+### Goals
+
+Echoing the theme of the sprint, the goals for the book will be to provide a good foundation to build upon.
+
+TODO: Define specific goals?
+
+# Library ecosystem
+[library-ecosystem]: #library-ecosystem
+
+There are a lot of existing libraries which use Future 0.1 . As it stands there is no resource to refer to when a library maintainer would want to port their library to work with std futures. [The issue][lucio-issue] mentioned in the previous section goes into more detail, but the general theme is to provide material and help for library maintainers to migrate their libraries to std Futures.
+
+### Goals
+
+TODO: Define specific goals?
+
+
+[async-book]: https://rust-lang.github.io/async-book/
+[lucio-issue]: https://github.com/rustasync/team/issues/102
+[doc-blitz]: https://tokio.rs/blog/2018-10-doc-blitz/
