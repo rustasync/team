@@ -96,7 +96,7 @@ There isn't a lot that has been discussed around these two as they are in mainte
 
 The current [Async book][async-book] is a great start at explaining the details of why `async/await` is important, but is light on the details. As mentioned in [this issue][lucio-issue], there are discussions on improving the contents and providing a starting point for people wanting to learn about how the feature works. There are also plans for adding sections for helping maintainers of existing libraries to migrate to std futures.
 
-The book can also provide guides for building different kinds of software using `async/await` as well as provide guides for people wanting to help out with the documentation and migration effort, akin to [Tokio's doc-blitz][doc-blitz].
+The book can also provide guides for building different kinds of software using `async/await` as well as provide guides for people wanting to help out with the documentation and migration effort, akin to [Tokio's doc-push][doc-push].
 
 
 ### Goals
@@ -117,4 +117,4 @@ TODO: Define specific goals?
 
 [async-book]: https://rust-lang.github.io/async-book/
 [lucio-issue]: https://github.com/rustasync/team/issues/102
-[doc-blitz]: https://tokio.rs/blog/2018-10-doc-blitz/
+[doc-push]: https://tokio.rs/blog/2018-10-doc-blitz/
