@@ -12,6 +12,9 @@ This RFC is intended to provide the general outline and define the goals for the
 
 Since this will be the first sprint for the async ecosystems wg, the goal is to build a good foundation on which future work can proceed.
 
+* Start date: *28 March*
+* End date: *2 May*
+
 # Detailed description
 [detailed-description]: #detailed-description
 
@@ -103,7 +106,11 @@ The book can also provide guides for building different kinds of software using 
 
 Echoing the theme of the sprint, the goals for the book will be to provide a good foundation to build upon.
 
-TODO: Define specific goals?
+Some general goals are
+
+* [ ] Outline chapters
+* [ ] Move Async book to rustasync org?
+* [ ] Provide a guide for writing chapters?
 
 # Library ecosystem
 [library-ecosystem]: #library-ecosystem
@@ -112,7 +119,10 @@ There are a lot of existing libraries which use Future 0.1 . As it stands there 
 
 ### Goals
 
-TODO: Define specific goals?
+Some general goals for this sprint are:
+
+* [ ] Reach out to crate maintainers and learn their requirements
+* [ ] Migrate projects for experience reports.
 
 
 [async-book]: https://rust-lang.github.io/async-book/
