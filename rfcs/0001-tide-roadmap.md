@@ -109,8 +109,8 @@ Echoing the theme of the sprint, the goals for the book will be to provide a goo
 Some general goals are
 
 * [ ] Outline chapters
-* [ ] Move Async book to rustasync org?
-* [ ] Provide a guide for writing chapters?
+* [ ] Move Async book to rustasync org
+* [ ] Provide guides for writing chapters.
 
 # Library ecosystem
 [library-ecosystem]: #library-ecosystem
