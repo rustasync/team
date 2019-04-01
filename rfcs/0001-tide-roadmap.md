@@ -35,8 +35,8 @@ There has been some discussion on the [Sprint 1 goals issue][sprint-goals], and 
 * [ ] Session management
 * [ ] Authentication
 
-## Stabilize tide core
-[stabilize-tide-core]: #stabilize-tide-core
+## Merge Context PR
+[merge-context-pr]: #merge-context-pr
 
 Currently [the PR][context-pr] is open, with most of the core changes done. There is ongoing discussion regarding the change, and you can follow with the progress directly on the PR.
 
