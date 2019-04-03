@@ -9,7 +9,7 @@ The [issue tracker] on this repo is a primary point of coordination. If you have
 
 [working-groups]: https://internals.rust-lang.org/t/announcing-the-2018-domain-working-groups/6737
 [discord]: https://discord.gg/rust-lang
-[issue tracker]: https://github.com/rust-lang-nursery/net-wg/issues
+[issue tracker]: https://github.com/rustasync/team/issues
 
 # Goals and structure
 
@@ -18,7 +18,7 @@ The WG is focused on three major areas for 2018, each of which has a dedicated s
 ## Async foundations
 
 - **Leads**: @cramertj and @MajorBreakfast
-- [Vision document and roster](https://rust-lang-nursery.github.io/wg-net/async-foundations)
+- [Vision document and roster](https://rustasync.github.io/team/async-foundations)
 
 Our goal is to bring async/await onto a path to stabilization and to provide documentation for asynchronous programming:
 
@@ -29,7 +29,7 @@ Our goal is to bring async/await onto a path to stabilization and to provide doc
 ## Embedded networking foundations 
 
 - **Leads**: @Nemo157 and @levex
-- [Vision document and roster](https://rust-lang-nursery.github.io/wg-net/embedded-foundations)
+- [Vision document and roster](https://rustasync.github.io/team/embedded-foundations)
 
 Our goal is to support IoT development in Rust by:
 
@@ -39,7 +39,7 @@ Our goal is to support IoT development in Rust by:
 ## Web foundations
 
 - **Leads**: @aturon and @yoshuawuyts
-- [Vision document and roster](https://rust-lang-nursery.github.io/wg-net/web-foundations)
+- [Vision document and roster](https://rustasync.github.io/team/web-foundations)
 
 Our goal is to improve web programming in Rust by:
 
