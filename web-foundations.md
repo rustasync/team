@@ -28,6 +28,7 @@ Our goal is to improve web programming in Rust by:
 | xenith | xenith | xenith@xenith.org |
 | jbcden | jbcden | jbcden@gmail.com |
 | secretfader | secretfader | nyoung@uptime.ventures |
+| grey | fairingrey | fairingrey@gmail.com |
 
 [Add yourself!](https://github.com/rustasync/team/blob/gh-pages/{{ page.path }})
 
