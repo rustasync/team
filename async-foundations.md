@@ -25,6 +25,7 @@ Our goal is to bring async/await onto a path to stabilization and to provide doc
 | aknudsen           | arve.knudsen@gmail.com       | aknuds1           |
 | jsgf | jsgf@fb.com | jsgf |
 | inejge | inejge@gmail.com | inejge |
+| vorot93            | artem@vorotnikov.me          | vorot93           |
 
 [Add yourself!](https://github.com/rustasync/team/blob/gh-pages/{{ page.path }})
 
