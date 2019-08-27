@@ -32,6 +32,7 @@ Our goal is to improve web programming in Rust by:
 | vorot93               | vorot93           | artem@vorotnikov.me         |
 | taiki-e               | taiki-e           | te316e89@gmail.com          |
 | huyuumi               | JohnTitor         | huyuumi.dev@gmail.com       |
+| nasa                  | k-nasa            | mail@k-nasa.me              |
 
 [Add yourself!](https://github.com/rustasync/team/blob/gh-pages/{{ page.path }})
 
