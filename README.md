@@ -1,5 +1,16 @@
 # Rust 2019 Async Ecosystem Working Group
 
+## ⚠️  Deprecation notice  ⚠️
+
+The [Rustasync working group has
+sunset](https://blog.rust-lang.org/2019/09/30/Async-await-hits-beta.html#restructuring-async-io-in-the-rust-org)
+Runtime is no longer active. It was active from mid-2018 until fall 2019. It was
+disbanded in anticipation of `async/await` stabilizing in Rust 1.39, as
+ecosystem adoption had reached a point that a dedicated working group was no
+longer needed to help shepherd it.
+
+## About
+
 This repo is for coordinating the Rust Async Ecosystem Working Group.
 
 - [Announcement of the 2019 working group reorganization][async-working-groups]
